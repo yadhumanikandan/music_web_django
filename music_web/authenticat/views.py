@@ -31,6 +31,7 @@ def signin(request):
 def signup(request):
     # if request.user.is_authenticated:
     #     return redirect("signin")
+    # username = request.user.username
     if request.method == "POST":
         username = request.POST.get("username")
         email = request.POST.get("email")
