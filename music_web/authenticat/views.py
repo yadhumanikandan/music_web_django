@@ -3,8 +3,14 @@ from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
+
+
+@login_required
+def home(request):
+    return HttpResponse("home page")
 
 
 def signin(request):
