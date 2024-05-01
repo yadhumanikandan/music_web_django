@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     
-    'authenticat.apps.AuthenticatConfig'
+    'authenticat.apps.AuthenticatConfig',
+    'music_admin.apps.MusicAdminConfig',
 ]
 
 MIDDLEWARE = [

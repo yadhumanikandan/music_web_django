@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>music admin dashboard</h1>
+<button id="redirectButton">Add scales</button>
+
+
+<script>
+    document.getElementById("redirectButton").addEventListener("click", function() {
+        window.location.href = "{% url 'add_scale' %}";
+    });
+</script>
+
+{% endblock %}
