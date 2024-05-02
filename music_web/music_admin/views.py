@@ -12,4 +12,12 @@ def admin_dashboard(request):
 
 @login_required
 def add_scale(request):
-    return HttpResponse("add scale page")
+    if request.method == 'POST':
+        name = request.POST.get("name")
+        scale = request.POST.get("scale")
+        discription = request.POST.get("discription")
+
+        return HttpResponse(name+ " " +scale+ " " +discription)
+
+    else:
+        return render(request, 'add_scale.html')
