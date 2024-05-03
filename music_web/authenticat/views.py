@@ -11,7 +11,7 @@ from django.contrib.auth.decorators import login_required
 def signin(request):
     if request.user.is_authenticated:
         messages.error(request, "You are already signed in.")
-        return redirect("musci_admin:show_db")
+        return redirect("base:home")
     
     else:
         if request.method == 'POST':
@@ -23,7 +23,7 @@ def signin(request):
             if user is not None:
                 login(request, user)
                 messages.success(request, "Logged in successfully.")
-                return redirect("music_admin:show_db")
+                return redirect("base:home")
             
             else:
                 messages.error(request, "Username or Password incorrect.")
@@ -36,7 +36,7 @@ def signin(request):
 def signup(request):
     if request.user.is_authenticated:
         messages.error(request, "You are already signed in.")
-        return redirect("music_admin:show_db")
+        return redirect("base:home")
     
     else:
         if request.method == "POST":
@@ -70,4 +70,4 @@ def signup(request):
 def signout(request):
     logout(request)
     messages.success(request, "logged out successfully")
-    return redirect("authicate:signin")
+    return redirect("authenticat:signin")

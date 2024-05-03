@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     
     'authenticat.apps.AuthenticatConfig',
     'music_admin.apps.MusicAdminConfig',
+    'base.apps.BaseConfig',
 ]
 
 MIDDLEWARE = [
@@ -124,7 +125,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-LOGIN_URL = '/signin/'
+LOGIN_URL = '/auth/signin/'
 
 MEDIA_ROOT =  os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
