@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Display Data</title>
+</head>
+<body>
+    <h1>Display Data</h1>
+    <ul>
+        {% for item in data %}
+        <li>{{ item.name }} - {{ item.scale }} - {{ item.discription }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

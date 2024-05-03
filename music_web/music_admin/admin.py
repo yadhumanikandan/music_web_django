@@ -1,8 +1,8 @@
 from django.contrib import admin
 
-from .models import Scales
+from .models import Scale
 
 # Register your models here.
 
 
-admin.site.register(Scales)
+admin.site.register(Scale)

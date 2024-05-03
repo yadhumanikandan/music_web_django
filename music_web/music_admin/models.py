@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 
 
-class Scales(models.Model):
+class Scale(models.Model):
 
     name = models.CharField(max_length=100)
     scale = models.CharField(max_length=100)

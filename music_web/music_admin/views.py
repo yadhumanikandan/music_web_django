@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
-from .models import Scales
+from .models import Scale
 
 # Create your views here.
 
@@ -18,7 +18,14 @@ def add_scale(request):
         scale = request.POST.get("scale")
         discription = request.POST.get("discription")
 
+        scl = Scale.objects.create(name=name, scale=scale, discription=discription)
+
         return HttpResponse(name+ " " +scale+ " " +discription)
 
     else:
         return render(request, 'add_scale.html')
+    
+
+def show_db(request):
+    data = Scale.objects.all()
+    return render(request, 'display_data.html', {'data': data})
