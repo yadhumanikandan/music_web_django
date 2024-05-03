@@ -2,6 +2,8 @@ from django.urls import path
 from . import views
 
 
+app_name = "music_admin"
+
 urlpatterns = [
     path('', views.admin_dashboard, name='admin_dashboard'),
     path('add_scale/', views.add_scale, name='add_scale'),

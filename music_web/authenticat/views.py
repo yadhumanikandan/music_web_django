@@ -8,55 +8,66 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 
-@login_required
-def home(request):
-    return HttpResponse("home page")
-
-
 def signin(request):
-    if request.method == 'POST':
-        username = request.POST.get("username")
-        password = request.POST.get("password")
-        # email = request.POST.get("email")
-
-        user = authenticate(username=username, password=password)
-
-        if user is not None:
-            login(request, user)
-            messages.success(request, "Logged in successfully")
-            return HttpResponse("authenticated")
-        
-        else:
-            messages.error(request, "bad credentials")
-            return HttpResponse(user)
-
+    if request.user.is_authenticated:
+        messages.error(request, "You are already signed in.")
+        return redirect("musci_admin:show_db")
+    
     else:
-        return render(request, 'signin.html')
+        if request.method == 'POST':
+            username = request.POST.get("username")
+            password = request.POST.get("password")
+
+            user = authenticate(username=username, password=password)
+
+            if user is not None:
+                login(request, user)
+                messages.success(request, "Logged in successfully.")
+                return redirect("music_admin:show_db")
+            
+            else:
+                messages.error(request, "Username or Password incorrect.")
+                return redirect("authenticate:signin")
+
+        else:
+            return render(request, 'signin.html')
     
 
 def signup(request):
-    # if request.user.is_authenticated:
-    #     return redirect("signin")
-    # username = request.user.username
-    if request.method == "POST":
-        username = request.POST.get("username")
-        email = request.POST.get("email")
-        password1 = request.POST.get("password1")
-        password2 = request.POST.get("password2")
-
-        user = User.objects.create_user(username=username, password=password1, email=email)  ## at this point the user is already created in the database
-
-        # user.set_password = password1
-        # user.save()                                                            ##  not mandatory only used when updating some properties
-
-        messages.success(request, "you\'r account has been created succesfully")
-        return redirect("signin")
-
+    if request.user.is_authenticated:
+        messages.error(request, "You are already signed in.")
+        return redirect("music_admin:show_db")
+    
     else:
-        return render(request, "signup.html")
+        if request.method == "POST":
+            username = request.POST.get("username")
+            email = request.POST.get("email")
+            password1 = request.POST.get("password1")
+            password2 = request.POST.get("password2")
+
+            if User.objects.filter(username=username):
+                messages.error(request, "Username already exist. Please try another username.")
+                return redirect("authenticat:signup")
+            
+            if User.objects.filter(email=email):
+                messages.error(request, "Email already exist. Please try another email.")
+                return redirect("authenticate:signup")
+            
+            if password1 != password2:
+                messages.error(request, "Passwords don't match.")
+                return redirect("authenticate:signup")
+
+            user = User.objects.create_user(username=username, password=password1, email=email)  ## at this point the user is already created in the database
+
+            messages.success(request, "you\'r account has been created succesfully")
+            return redirect("authenticat:signin")
+
+        else:
+            return render(request, "signup.html")
     
 
+@login_required
 def signout(request):
     logout(request)
     messages.success(request, "logged out successfully")
-    return redirect("signin")
+    return redirect("authicate:signin")
