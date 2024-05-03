@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     
     'authenticat.apps.AuthenticatConfig',
     'music_admin.apps.MusicAdminConfig',
+    'scales_and_chords.apps.ScalesAndChordsConfig',
 ]
 
 MIDDLEWARE = [

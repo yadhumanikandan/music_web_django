@@ -10,21 +10,6 @@ from.forms import ScaleForm
 @login_required
 def admin_dashboard(request):
     return render(request, 'dashboard.html')
-
-
-# @login_required
-# def add_scale(request):
-#     if request.method == 'POST':
-#         name = request.POST.get("name")
-#         scale = request.POST.get("scale")
-#         discription = request.POST.get("discription")
-
-#         scl = Scale.objects.create(name=name, scale=scale, discription=discription)
-
-#         return HttpResponse(name+ " " +scale+ " " +discription)
-
-#     else:
-#         return render(request, 'add_scale.html')
     
 
 @login_required
@@ -41,6 +26,7 @@ def add_scale(request):
     return render(request, 'add_scale.html', {'form': form})
     
 
+@login_required
 def show_db(request):
     data = Scale.objects.all()
     return render(request, 'display_data.html', {'data': data})
