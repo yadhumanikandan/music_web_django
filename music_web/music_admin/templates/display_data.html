@@ -5,10 +5,11 @@
 </head>
 <body>
     <h1>Display Data</h1>
-    <ul>
+    <div>
         {% for item in data %}
-        <li>{{ item.name }} - {{ item.scale }} - {{ item.discription }}</li>
+        <p>{{ item.name }} - {{ item.scale }} - {{ item.discription }} - {{ item.id }}</p>
+        <img src="{{ item.scale_img.url }}" alt="">
         {% endfor %}
-    </ul>
+    </div>
 </body>
 </html>

@@ -3,10 +3,11 @@
 
 {% block content %}
 
-<form action="#" method="post">
+<form action="#" method="post" enctype="multipart/form-data">
     {% csrf_token %}
+    {{ form.as_p }}
 
-    <label for="name">scale name</label>
+    <!-- <label for="name">scale name</label>
     <input type="text" name="name">
     <br>
     <label for="scale">scale</label>
@@ -14,7 +15,7 @@
     <br>
     <label for="discription">discription</label>
     <input type="text" name="discription">
-    <br>
+    <br> -->
 
     <button type="submit">Add</button>
 </form>
