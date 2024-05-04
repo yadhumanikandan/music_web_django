@@ -6,4 +6,4 @@ class ScaleForm(forms.ModelForm):
  
     class Meta:
         model = Scale
-        fields = ['name', 'scale', 'discription', 'scale_img']
+        fields = ['name', 'scale', 'discription', 'keyboard_image', 'guitar_image']

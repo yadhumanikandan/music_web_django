@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 from .models import Scale
 from.forms import ScaleForm
 
@@ -23,11 +24,19 @@ def add_scale(request):
     if request.user.username == music_admin:
 
         if request.method == 'POST':
-            form = ScaleForm(request.POST, request.FILES)
-    
-            if form.is_valid():
-                form.save()
-                return redirect('show_db')
+            
+            name = request.POST.get('name')
+
+            if not Scale.objects.filter(name=name):
+                form = ScaleForm(request.POST, request.FILES)
+        
+                if form.is_valid():
+                    form.save()
+                    return redirect('music_admin:show_db')
+                
+            else:
+                messages.error(request, 'Scale alredy exists in database.')
+                return redirect('music_admin:add_scale')
         else:
             form = ScaleForm()
         return render(request, 'add_scale.html', {'form': form})
