@@ -1,21 +1,15 @@
 {% extends 'base.html' %}
 
 
+{% block title %} Admin - Add scale {% endblock %}
+
+
 {% block content %}
 
 <form action="#" method="post" enctype="multipart/form-data">
+    
     {% csrf_token %}
     {{ form.as_p }}
-
-    <!-- <label for="name">scale name</label>
-    <input type="text" name="name">
-    <br>
-    <label for="scale">scale</label>
-    <input type="text" name="scale">
-    <br>
-    <label for="discription">discription</label>
-    <input type="text" name="discription">
-    <br> -->
 
     <button type="submit">Add</button>
 </form>

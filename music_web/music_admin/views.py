@@ -6,24 +6,34 @@ from.forms import ScaleForm
 
 # Create your views here.
 
+music_admin = "yadhu"
 
 @login_required
 def admin_dashboard(request):
-    return render(request, 'dashboard.html')
+    if request.user.username == music_admin:
+        return render(request, 'dashboard.html')
+    
+    else:
+        return HttpResponse("not allowed!!!")
     
 
 @login_required
 def add_scale(request):
- 
-    if request.method == 'POST':
-        form = ScaleForm(request.POST, request.FILES)
- 
-        if form.is_valid():
-            form.save()
-            return redirect('show_db')
+
+    if request.user.username == music_admin:
+
+        if request.method == 'POST':
+            form = ScaleForm(request.POST, request.FILES)
+    
+            if form.is_valid():
+                form.save()
+                return redirect('show_db')
+        else:
+            form = ScaleForm()
+        return render(request, 'add_scale.html', {'form': form})
+    
     else:
-        form = ScaleForm()
-    return render(request, 'add_scale.html', {'form': form})
+        return HttpResponse("not allowed!!!")
     
 
 @login_required
