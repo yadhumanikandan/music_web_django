@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %} TheMusicianTheory - Home {% endblock %}
+
+{% block content %}
+
+<h1>Home</h1>
+<button id="redirectButton">Show scales</button>
+
+
+<script>
+    document.getElementById("redirectButton").addEventListener("click", function() {
+        window.location.href = "{% url 'base:show_scales' %}";
+    });
+</script>
+
+{% endblock %}

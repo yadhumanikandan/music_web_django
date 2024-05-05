@@ -6,4 +6,5 @@ app_name = "base"
 
 urlpatterns = [
     path('', views.home, name='home'),
+    path('show-scales', views.show_scales, name='show_scales')
 ]

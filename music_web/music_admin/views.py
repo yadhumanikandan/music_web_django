@@ -32,7 +32,7 @@ def add_scale(request):
         
                 if form.is_valid():
                     form.save()
-                    return redirect('music_admin:show_db')
+                    return redirect('base:show_scales')
                 
             else:
                 messages.error(request, 'Scale alredy exists in database.')
@@ -45,7 +45,7 @@ def add_scale(request):
         return HttpResponse("not allowed!!!")
     
 
-@login_required
-def show_db(request):
-    data = Scale.objects.all()
-    return render(request, 'display_data.html', {'data': data})
+# @login_required
+# def show_db(request):
+#     data = Scale.objects.all()
+#     return render(request, 'display_data.html', {'data': data})

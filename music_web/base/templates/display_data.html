@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %} TheMusicianTheory - Scales {% endblock %}
+
+{% block content %}
+
+<h1>Display Data</h1>
+<div>
+    {% for item in data %}
+    <p>{{ item.name }} - {{ item.scale }} - {{ item.discription }} - {{ item.id }}</p>
+    <img src="{{ item.keyboard_image.url }}" alt="">
+    <img src="{{ item.guitar_image.url }}" alt="">
+    {% endfor %}
+</div>
+
+{% endblock %}
