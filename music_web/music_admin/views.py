@@ -44,8 +44,3 @@ def add_scale(request):
     else:
         return HttpResponse("not allowed!!!")
     
-
-# @login_required
-# def show_db(request):
-#     data = Scale.objects.all()
-#     return render(request, 'display_data.html', {'data': data})

@@ -6,9 +6,9 @@ from music_admin.models import Scale
 
 
 def home(request):
-    return render(request, 'home.html')
+    return render(request, 'base/home.html')
 
 
 def show_scales(request):
     data = Scale.objects.all()
-    return render(request, 'display_data.html', {'data': data})
+    return render(request, 'base/display_data.html', {'data': data})
