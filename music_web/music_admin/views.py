@@ -12,7 +12,7 @@ music_admin = "yadhu"
 @login_required
 def admin_dashboard(request):
     if request.user.username == music_admin:
-        return render(request, 'dashboard.html')
+        return render(request, 'music_admin/dashboard.html')
     
     else:
         return HttpResponse("not allowed!!!")
@@ -39,7 +39,7 @@ def add_scale(request):
                 return redirect('music_admin:add_scale')
         else:
             form = ScaleForm()
-        return render(request, 'add_scale.html', {'form': form})
+        return render(request, 'music_admin/add_scale.html', {'form': form})
     
     else:
         return HttpResponse("not allowed!!!")

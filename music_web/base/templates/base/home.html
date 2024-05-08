@@ -4,19 +4,57 @@
 
 {% block content %}
 
+{% load static %}
+
 
 
 <div class="container-fluid mt-4">
     <div class="row">
       <div class="col">
         <a href="{% url 'base:show_scales' %}">
-            <div class="text-light bg-primary p-4 curved-box">
-                <h2>learn scales</h2>
+            <div class="text-light bg-primary p-5 curved-box" style="background-image: url('{% static 'base/img/scale-bg.png' %}'); background-size: cover; background-position: center;">
+                <h2>Learn scales</h2>
                 <p>search and learn all the scales in music.</p>
             </div>
         </a>
       </div>
     </div>
+
+    <div class="row mt-4">
+        <div class="col">
+            <a href="{% url 'base:show_scales' %}">
+                <div class="text-light bg-primary p-5 curved-box" style="background-image: url('{% static 'base/img/chord-bg.jpg' %}'); background-size: cover; background-position: center;">
+                    <h2>Learn chords</h2>
+                    <p>search and learn all the chords in music.</p>
+                </div>
+            </a>
+          </div>
+      </div>
+
+      <div class="row mt-4">
+        <div class="col">
+            <a href="{% url 'base:show_scales' %}">
+                <div class="text-light bg-primary p-5 curved-box" style="background-image: url('{% static 'base/img/pp-bg.jpeg' %}'); background-size: cover; background-position: center;">
+                    <h2>Practice perfect pitch</h2>
+                    <p>Practice for improving your pitch identification ability.</p>
+                </div>
+            </a>
+          </div>
+      </div>
+
+      <div class="row mt-4">
+        <div class="col">
+            <a href="{% url 'base:show_scales' %}">
+                <div class="text-light bg-primary p-5 curved-box" style="background-image: url('{% static 'base/img/con-bg.png' %}'); background-size: cover; background-position: center;">
+                    <h2>Connect with musicians</h2>
+                    <p>Connect with other musicians.</p>
+                </div>
+            </a>
+          </div>
+      </div>
+
+      </div>
+
 </div>
 
 

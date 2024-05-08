@@ -27,10 +27,10 @@ def signin(request):
             
             else:
                 messages.error(request, "Username or Password incorrect.")
-                return redirect("authenticate:signin")
+                return redirect("authenticat:signin")
 
         else:
-            return render(request, 'signin.html')
+            return render(request, 'authenticat/signin.html')
     
 
 def signup(request):
@@ -51,11 +51,11 @@ def signup(request):
             
             if User.objects.filter(email=email):
                 messages.error(request, "Email already exist. Please try another email.")
-                return redirect("authenticate:signup")
+                return redirect("authenticat:signup")
             
             if password1 != password2:
                 messages.error(request, "Passwords don't match.")
-                return redirect("authenticate:signup")
+                return redirect("authenticat:signup")
 
             user = User.objects.create_user(username=username, password=password1, email=email)  ## at this point the user is already created in the database
 
@@ -63,7 +63,7 @@ def signup(request):
             return redirect("authenticat:signin")
 
         else:
-            return render(request, "signup.html")
+            return render(request, "authenticat/signup.html")
     
 
 @login_required
