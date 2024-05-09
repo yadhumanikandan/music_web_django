@@ -4,26 +4,44 @@
 
 {% block content %}
 
-<h1>SIGNUP</h1>
+<div class="mt-5">
+<div class="m-3">
+<h1 align="center" >SIGNUP</h1>
 <form action="#" method="post">
     {% csrf_token %}
 
-    <label for="">username</label>
-    <input type="text" name="username">
-    <br>
-    <label for="">email</label>
-    <input type="email" name="email">
-    <br>
-    <label for="">password</label>
-    <input type="password" name="password1">
-    <br>
-    <label for="">confirm password</label>
-    <input type="password" name="password2">
-    <br>
+    <div class="mt-3">
+    <input class="form-control" type="text" name="username" placeholder="Username">
+    </div>
 
+    <div class="mt-3">
+    <input class="form-control" type="email" name="email" placeholder="Email">
+</div>
 
-    <button type="submit">submit</button>
+    <div class="mt-3">
+    <input class="form-control" type="password" name="password1" placeholder="Password">
+</div>
+
+    <div class="mt-3">
+    <input class="form-control" type="password" name="password2" placeholder="Confirm password">
+</div>
+
+    <div class="mt-3">
+        <button class="btn btn-primary" type="submit">  REGISTER  </button>
+</div>
+
 </form>
-<p>don't have an account? Login <a href="/auth/signin">here</p>
+
+<div class="mb-4">
+    <div class="mt-5" style="height: 1px; background-color: #EAEFF5"></div>
+</div>
+
+    <div class="">
+    <p>Already have an account?</p>
+    <a href="/auth/signin"><button class="btn btn-primary" type="button"> Login here</button></a>
+    </div>
+
+</div>
+</div>
 
 {% endblock %}
