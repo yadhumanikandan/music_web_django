@@ -33,4 +33,4 @@ def show_scales(request):
 def show_result(request, id):
     data = Scale.objects.filter(id=id)
     
-    return render(request, 'base/display_data.html', {'data': data})  # change to showing the scale details page
+    return render(request, 'base/scale.html', {'data': data})  # change to showing the scale details page
