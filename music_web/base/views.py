@@ -18,6 +18,19 @@ def account(request):
         return redirect('authenticat:signin')
 
 
+
 def show_scales(request):
-    data = Scale.objects.all()
-    return render(request, 'base/display_data.html', {'data': data})
+    if request.method == "POST":
+        search = request.POST.get("search")
+        data = Scale.objects.filter(name__contains=search)
+        return render(request, 'base/all_cards.html', {'data': data})
+    
+    else:
+        data = Scale.objects.all()
+        return render(request, 'base/all_cards.html', {'data': data})
+
+
+def show_result(request, id):
+    data = Scale.objects.filter(id=id)
+    
+    return render(request, 'base/display_data.html', {'data': data})  # change to showing the scale details page
