@@ -23,7 +23,7 @@ def show_scales(request):
     if request.method == "POST":
         search = request.POST.get("search")
         data = Scale.objects.filter(name__contains=search)
-        return render(request, 'base/all_cards.html', {'data': data})
+        return render(request, 'base/all_cards.html', {'data': data, 'search': search})
     
     else:
         data = Scale.objects.all()

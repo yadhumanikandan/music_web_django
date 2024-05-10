@@ -14,7 +14,7 @@
             <div class="">
 
                 <div class="">
-                    <input name="search" class="form-control" type="text" placeholder="Search" >
+                    <input name="search" class="form-control" type="text" placeholder="Search for scales" >
                 </div>
 
                 <div align="center" class="m-3">
@@ -25,6 +25,11 @@
         </form>
     </div>
     {% if data %}
+        {% if search %}
+            <div align="center" class="m-3">
+                <h2>Search result for "{{ search }}"</h2>
+            </div>
+        {% endif %}
         {% for item in data %}
             <a href={% url 'base:show_result' id=item.id %}>
                 <div class="card text-white bg-dark m-3" style="max-width: 100rem;">
