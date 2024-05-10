@@ -1,0 +1,21 @@
+{% extends "base/base.html" %}
+
+
+{% block title %} TheMusicianTheory - Account {% endblock %}
+
+
+{% block content %}
+
+<div align="center" class="m-5">
+
+    <h1 align="center">Hello {{ user.username }}</h1>
+
+    <div class="m-5">
+    <a href="/auth/signout">
+    <button class="btn btn-primary m-5" type="button">LOG OUT</button>
+</div>
+</a>
+
+</div>
+
+{% endblock %}
