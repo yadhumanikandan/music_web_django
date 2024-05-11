@@ -92,7 +92,9 @@
   
       <!-- Section: Form -->
       <section class="">
-        <form action="" method="post">
+        <form action="{% url 'base:news_letter' %}" method="post">
+
+          {% csrf_token %}
           <!--Grid row-->
           <div class="row d-flex justify-content-center">
             <!--Grid column-->
@@ -107,7 +109,7 @@
             <div class="col-md-5 col-12">
               <!-- Email input -->
               <div class="form-outline form-white mb-3">
-                <input type="email" id="form5Example2" class="form-control" placeholder="Email address" />
+                <input name="email" type="email" id="form5Example2" class="form-control" placeholder="Email address" />
                 <!-- <label class="form-label" for="form5Example2">Email address</label> -->
               </div>
             </div>

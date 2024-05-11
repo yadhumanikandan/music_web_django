@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from music_admin.models import Scale
+from base.models import newsletter
 
 # Create your views here.
 
@@ -33,4 +34,19 @@ def show_scales(request):
 def show_result(request, id):
     data = Scale.objects.filter(id=id)
     
-    return render(request, 'base/scale.html', {'data': data})  # change to showing the scale details page
+    return render(request, 'base/scale.html', {'data': data}) 
+
+
+def news_letter(request):
+    if request.method == 'POST':
+        email = request.POST.get('email')
+
+        ####### commit to database ########
+        ####### commit to database ########
+        ####### commit to database ########
+        ####### commit to database ########
+
+        return HttpResponse(email)
+    
+    else:
+        return redirect('base:home')
