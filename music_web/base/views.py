@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from music_admin.models import Scale
-from base.models import newsletter
+from base.models import NewsLetter
+from django.contrib import messages
 
 # Create your views here.
 
@@ -41,12 +42,18 @@ def news_letter(request):
     if request.method == 'POST':
         email = request.POST.get('email')
 
-        ####### commit to database ########
-        ####### commit to database ########
-        ####### commit to database ########
-        ####### commit to database ########
+        if NewsLetter.objects.filter(email=email):
+            messages.error(request, "Email already registerd!!")
 
-        return HttpResponse(email)
+            return redirect("base:home")
+        
+        newsletter = NewsLetter.objects.create(email=email)
+        newsletter.save()
+
+
+        messages.info(request, "Subscribed to Newsletter :)")
+
+        return redirect('base:home')
     
     else:
         return redirect('base:home')
