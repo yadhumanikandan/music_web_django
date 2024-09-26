@@ -15,7 +15,7 @@
     <div class="mt-3" style="height: 1px; background-color: #EAEFF5"></div>
 
     <h2 align="center" class="mt-3">CHORDS</h2>
-    <button class="btn btn-primary m-5" type="button">ADD SCALES</button>
+    <button class="btn btn-primary m-5" type="button" id="chords">ADD CHORDS</button>
 </div>
 
 
@@ -23,6 +23,10 @@
 <script>
     document.getElementById("redirectButton").addEventListener("click", function() {
         window.location.href = "{% url 'music_admin:add_scale' %}";
+    });
+
+    document.getElementById("chords").addEventListener("click", function() {
+        window.location.href = "{% url 'music_admin:add_chord' %}";
     });
 </script>
 

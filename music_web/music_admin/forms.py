@@ -1,5 +1,5 @@
 from django import forms
-from .models import Scale
+from .models import Scale, Chord
  
  
 class ScaleForm(forms.ModelForm):
@@ -10,6 +10,19 @@ class ScaleForm(forms.ModelForm):
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control'}),
             'scale': forms.TextInput(attrs={'class': 'form-control'}),
+            'discription': forms.Textarea(attrs={'class': 'form-control'}),
+
+        }
+
+
+class ChordForm(forms.ModelForm):
+ 
+    class Meta:
+        model = Chord
+        fields = ['name', 'discription', 'keyboard_image', 'guitar_image']
+        widgets = {
+            'name': forms.TextInput(attrs={'class': 'form-control'}),
+            # 'scale': forms.TextInput(attrs={'class': 'form-control'}),
             'discription': forms.Textarea(attrs={'class': 'form-control'}),
 
         }

@@ -31,7 +31,7 @@
             </div>
         {% endif %}
         {% for item in data %}
-            <a href={% url 'base:show_scale_result' id=item.id %}>
+            <a href={% url 'base:show_chord_result' id=item.id %}>
                 <div class="card text-white bg-dark m-3" style="max-width: 100rem;">
                     <div class="card-header"><h2>{{ item.name }}</h2></div>
                     <div class="card-body">

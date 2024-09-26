@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from music_admin.models import Scale
+from music_admin.models import Scale, Chord
 from base.models import NewsLetter
 from django.contrib import messages
 
@@ -32,10 +32,27 @@ def show_scales(request):
         return render(request, 'base/all_cards.html', {'data': data})
 
 
-def show_result(request, id):
+def show_scale_result(request, id):
     data = Scale.objects.filter(id=id)
     
     return render(request, 'base/scale.html', {'data': data}) 
+
+
+def show_chords(request):
+    if request.method == "POST":
+        search = request.POST.get("search")
+        data = Chord.objects.filter(name__contains=search)
+        return render(request, 'base/all_cards.html', {'data': data, 'search': search})
+    
+    else:
+        data = Chord.objects.all()
+        return render(request, 'base/all_cards_chords.html', {'data': data})
+
+
+def show_chord_result(request, id):
+    data = Chord.objects.filter(id=id)
+    
+    return render(request, 'base/chord.html', {'data': data}) 
 
 
 def news_letter(request):
