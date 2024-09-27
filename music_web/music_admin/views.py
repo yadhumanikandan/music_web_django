@@ -7,7 +7,7 @@ from.forms import ScaleForm, ChordForm
 
 # Create your views here.
 
-music_admin = "yadhu"
+music_admin = "music_admin"
 
 @login_required
 def admin_dashboard(request):

@@ -74,3 +74,12 @@ def news_letter(request):
     
     else:
         return redirect('base:home')
+    
+
+
+def perfect_pitch(request):
+    return HttpResponse("Coming soon")
+
+
+def connect_with_musicians(request):
+    return HttpResponse("Coming soon")

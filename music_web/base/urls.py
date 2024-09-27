@@ -11,5 +11,7 @@ urlpatterns = [
     path('scales/<int:id>', views.show_scale_result, name='show_scale_result'),
     path('chords/<int:id>', views.show_chord_result, name='show_chord_result'),
     path('account/', views.account, name='account'),
-    path('news_letter/', views.news_letter, name='news_letter')
+    path('news_letter/', views.news_letter, name='news_letter'),
+    path('perfect_pitch/', views.perfect_pitch, name='perfect_pitch'),
+    path('connect-with-musicians', views.connect_with_musicians, name="connect_with_musicians")
 ]
