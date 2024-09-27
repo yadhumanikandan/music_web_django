@@ -29,10 +29,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     '127.0.0.1',
-    '192.168.30.73',
-    '192.168.91.33',
-    '192.168.178.33',
-    '10.0.0.71'
+    '13.201.44.199',
+    '172.31.33.121'
 
 ]
 
@@ -88,8 +86,12 @@ WSGI_APPLICATION = 'music_web.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'musiciantheory',
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
+        'USER': 'root',
+        'PASSWORD': 'manik'
     }
 }
 
